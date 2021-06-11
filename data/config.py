@@ -24,7 +24,7 @@ COLORS = ((244,  67,  54),
           ( 96, 125, 139))
 
 
-# These are in BGR and are for ImageNet
+# These are in BGR and are for ImageNetyolact_base_config
 MEANS = (103.94, 116.78, 123.68)
 STD   = (57.38, 57.12, 58.40)
 
@@ -128,6 +128,19 @@ dataset_base = Config({
     'label_map': None
 })
 
+diamond = dataset_base.copy({
+    'name': 'diamond',
+
+    'train_images': '/content/diamond/train',
+    'train_info':   '/content/output.json',
+
+    'valid_images': '/content/diamond/train',
+    'valid_info':   '/content/output.json',
+
+    'has_gt': True,
+    'class_names':("Crystal", "Feather", "Needle", "Twinning Wisp", "Cloud", "Internal Graining", "Natural", "Knot", "Indented Natural", "Bruise"),
+    'label_map': {0:1,1:2,2:3,3:4,4:5,5:6,6:7,7:8,8:9,9:10}
+})
 coco2014_dataset = dataset_base.copy({
     'name': 'COCO 2014',
     
@@ -657,8 +670,8 @@ yolact_base_config = coco_base_config.copy({
     'name': 'yolact_base',
 
     # Dataset stuff
-    'dataset': coco2017_dataset,
-    'num_classes': len(coco2017_dataset.class_names) + 1,
+    'dataset': diamond,
+    'num_classes': 11,
 
     # Image Size
     'max_size': 550,
@@ -823,4 +836,3 @@ def set_cfg(config_name:str):
 def set_dataset(dataset_name:str):
     """ Sets the dataset of the current config. """
     cfg.dataset = eval(dataset_name)
-    
