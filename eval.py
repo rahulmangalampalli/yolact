@@ -605,6 +605,7 @@ def evalimage(net:Yolact, path:str, save_path:str=None):
     if save_path is None:
         plt.imshow(img_numpy)
         plt.title(path)
+        cv2.imwrite("fig.jpg", img_numpy)
         plt.show()
     else:
         cv2.imwrite(save_path, img_numpy)
