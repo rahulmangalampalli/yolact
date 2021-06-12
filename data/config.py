@@ -138,7 +138,7 @@ diamond = dataset_base.copy({
     'valid_info':   '/content/output.json',
 
     'has_gt': True,
-    'class_names':("Crystal", "Feather", "Needle", "Twinning Wisp", "Cloud", "Internal Graining", "Natural", "Knot", "Indented Natural", "Bruise","Surface Graining", "Etch Channel"),
+    'class_names':("Bruise", "Cloud", "Crystal","Etch Channel", "Feather", "Indented Natural", "Internal Graining", "Knot", "Natural", "Needle","Surface Graining", "Twinning Wisp"),
     'label_map': {0:1,1:2,2:3,3:4,4:5,5:6,6:7,7:8,8:9,9:10,10:11,11:12}
 })
 coco2014_dataset = dataset_base.copy({
