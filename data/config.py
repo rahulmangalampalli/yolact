@@ -138,8 +138,8 @@ diamond = dataset_base.copy({
     'valid_info':   '/content/output.json',
 
     'has_gt': True,
-    'class_names':("Bruise", "Cloud", "Crystal","Etch Channel", "Feather", "Indented Natural", "Internal Graining", "Knot", "Natural", "Needle","Surface Graining", "Twinning Wisp"),
-    'label_map': {0:1,1:2,2:3,3:4,4:5,5:6,6:7,7:8,8:9,9:10,10:11,11:12}
+    'class_names':("Bruise", "Cloud", "Crystal","Etch Channel", "Feather", "Indented Natural", "Internal Graining", "Knot", "Natural", "Needle","Surface Graining", "Twinning Wisp","None"),
+    'label_map': {0:1,1:2,2:3,3:4,4:5,5:6,6:7,7:8,8:9,9:10,10:11,11:12,12:13}
 })
 coco2014_dataset = dataset_base.copy({
     'name': 'COCO 2014',
@@ -671,7 +671,7 @@ yolact_base_config = coco_base_config.copy({
 
     # Dataset stuff
     'dataset': diamond,
-    'num_classes': 13,
+    'num_classes': len(diamond.class_names)+1,
 
     # Image Size
     'max_size': 550,
